@@ -301,6 +301,12 @@ export class BlockGridPreviewCustomView
 
             if (data) {
                 this._htmlMarkup = data ?? '';
+                document.body.dispatchEvent(new CustomEvent('umb-block-preview-rendered', {
+                    detail: {
+                        host: this,
+                        html: this._htmlMarkup
+                    }
+                }));
                 this._isLoading = false;
             }
             else if (UmbApiError.isUmbApiError(error)) {

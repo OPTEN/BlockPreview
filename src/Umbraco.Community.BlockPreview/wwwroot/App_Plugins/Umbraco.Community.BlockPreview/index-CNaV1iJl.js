@@ -809,7 +809,12 @@ ot = async function() {
         blockIndex: e.blockIndex
       }
     }));
-    r ? (this._htmlMarkup = r ?? "", this._isLoading = !1) : Oe.isUmbApiError(i) && (this._error = i.message, this._isLoading = !1);
+    r ? (this._htmlMarkup = r ?? "", document.body.dispatchEvent(new CustomEvent("umb-block-preview-rendered", {
+      detail: {
+        host: this,
+        html: this._htmlMarkup
+      }
+    })), this._isLoading = !1) : Oe.isUmbApiError(i) && (this._error = i.message, this._isLoading = !1);
   } catch (r) {
     this._error = "Failed to render block preview", this._isLoading = !1, console.error("Block preview error:", r);
   }
@@ -1537,7 +1542,7 @@ const fr = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     ...Vt.manifest,
     type: "propertyAction",
     kind: "sortMode",
-    api: () => import("./sort-mode.property-action-MRA6dPih.js"),
+    api: () => import("./sort-mode.property-action-CyJG89tm.js"),
     weight: 100,
     meta: {
       icon: "icon-navigation-vertical",
@@ -1553,7 +1558,7 @@ const fr = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     kind: "sortMode",
     alias: "BlockPreview.PropertyAction.Grid.SortMode",
     name: "Block Grid Sort Mode Property Action",
-    api: () => import("./block-grid-sort-mode-0T1uZGhI.js"),
+    api: () => import("./block-grid-sort-mode-B6eIeIeH.js"),
     forPropertyEditorUis: [$t],
     conditions: [
       {
@@ -1567,7 +1572,7 @@ const fr = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     kind: "sortMode",
     alias: "BlockPreview.PropertyAction.List.SortMode",
     name: "Block List Sort Mode Property Action",
-    api: () => import("./block-list-sort-mode-B98XVgzd.js"),
+    api: () => import("./block-list-sort-mode-CBaRtx-I.js"),
     forPropertyEditorUis: [It],
     conditions: [
       {
@@ -1664,4 +1669,4 @@ export {
   Et as c,
   Mr as o
 };
-//# sourceMappingURL=index-CuIeJ4-M.js.map
+//# sourceMappingURL=index-CNaV1iJl.js.map
